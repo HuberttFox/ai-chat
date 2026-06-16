@@ -1,6 +1,8 @@
 import streamlit as st
 from openai import OpenAI
 import os
+from dotenv import load_dotenv
+load_dotenv()
 import json
 import re
 from datetime import datetime
@@ -110,8 +112,7 @@ def load_session_callback(session_name):
         # 核心防丢机制：加载历史记录前，先把当前屏幕上的对话存起来
         save_session(st.session_state.sys_prompt_key)
 
-        safe_name = sanitize_filename(session_name)
-        file_path = f"sessions/{safe_name}.json"
+        file_path = f"sessions/{session_name}.json"
         if os.path.exists(file_path):
             with open(file_path, "r", encoding="utf-8") as f:
                 session_data = json.load(f)
@@ -139,8 +140,7 @@ def delete_session_callback(session_name):
     """
     【回调函数】删除指定的历史会话。
     """
-    safe_name = sanitize_filename(session_name)
-    file_path = f"sessions/{safe_name}.json"
+    file_path = f"sessions/{session_name}.json"
     if os.path.exists(file_path):
         os.remove(file_path)  # 物理删除文件
 
