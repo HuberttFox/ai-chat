@@ -1,4 +1,5 @@
 # AI Chat
+> [English](./README.md)
 
 基于 Streamlit + DeepSeek API 的 AI 对话应用，支持多会话管理、流式输出、历史记录持久化。
 

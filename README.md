@@ -1,4 +1,5 @@
 # AI Chat
+> [中文版](./README.zh.md)
 
 A Streamlit-based AI chat application powered by DeepSeek API, featuring multi-session management, streaming output, and persistent chat history.
 
