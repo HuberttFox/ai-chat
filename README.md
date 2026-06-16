@@ -1,65 +1,65 @@
 # AI Chat
 
-基于 Streamlit + DeepSeek API 的 AI 对话应用，支持多会话管理、流式输出、历史记录持久化。
+A Streamlit-based AI chat application powered by DeepSeek API, featuring multi-session management, streaming output, and persistent chat history.
 
-## 功能特性
+## Features
 
-- 💬 多会话管理 — 新建、加载、删除历史对话
-- ⚡ 流式输出 — 打字机效果实时显示 AI 回复
-- 📝 自定义系统提示词
-- 💾 本地 JSON 持久化 — 对话自动保存到 `sessions/` 目录
-- 🧹 路径安全 — 会话名经过 sanitize 处理，防御路径遍历
-- 🛡️ 友好错误处理 — API 异常时 UI 显示提示而非直接崩溃
+- 💬 **Multi-session management** — Create, load, and delete chat sessions
+- ⚡ **Streaming output** — Real-time typewriter effect for AI responses
+- 📝 **Custom system prompts**
+- 💾 **Local JSON persistence** — Conversations auto-saved to `sessions/`
+- 🧹 **Path sanitization** — Session names are sanitized to prevent path traversal
+- 🛡️ **Graceful error handling** — API errors shown in UI instead of crashing
 
-## 快速开始
+## Quick Start
 
-### 前置条件
+### Prerequisites
 
 - Python >= 3.13
-- DeepSeek API Key
+- A DeepSeek API Key
 
-### 安装
+### Installation
 
 ```bash
 git clone <repo-url>
 cd <repo-name>
 
-# 推荐使用虚拟环境
+# Virtual environment recommended
 python3 -m venv .venv
 source .venv/bin/activate
 
-# 安装依赖
+# Install dependencies
 pip install -e .
 ```
 
-### 配置
+### Configuration
 
 ```bash
 cp .env.example .env
-# 编辑 .env，填入你的 API Key:
+# Edit .env and add your API Key:
 # DEEPSEEK_API_KEY=sk-your-key-here
 ```
 
-### 运行
+### Run
 
 ```bash
 streamlit run main.py
 ```
 
-浏览器访问 `http://localhost:8501` 即可。
+Open `http://localhost:8501` in your browser.
 
-## 项目结构
+## Project Structure
 
 ```
 .
-├── main.py              # 主入口
-├── pyproject.toml       # 项目配置与依赖
-├── .env.example         # 环境变量模板
+├── main.py              # Application entry point
+├── pyproject.toml       # Project config & dependencies
+├── .env.example         # Environment variable template
 ├── .gitignore
-└── sessions/            # 对话数据（已 gitignore）
+└── sessions/            # Chat history data (gitignored)
 ```
 
-## 注意事项
+## Notes
 
-- `sessions/` 目录已被 `.gitignore` 忽略，本地对话不会提交到仓库
-- API Key 通过环境变量读取，切勿直接写入代码或提交 `.env`
+- The `sessions/` directory is gitignored — local conversations won't be committed
+- API Key is read from environment variable — never hardcode it or commit `.env`
