@@ -1,0 +1,8 @@
+[project]
+name = "ai-apply"
+version = "0.1.0"
+requires-python = ">=3.13"
+dependencies = [
+  "streamlit>=1.35,<2",
+  "openai>=1.30,<2",
+]
